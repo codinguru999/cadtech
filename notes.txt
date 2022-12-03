@@ -1,0 +1,24 @@
+have to add a section containing how many students have been passed out and how many courses have been done and classes have been performed
+refrence - https://eduma.thimpress.com/demo-main/
+https://eduma.thimpress.com/demo-coursera/
+
+///Responsiveness ------------done
+Services cards(done after what to enter in them)
+topics show issue--------- done
+data entry
+descriptions and removing lorems
+different image change for different things
+remove fees ----------done
+review
+mailing part
+
+
+students corner number certificate     -------------half done        backend done
+become a partener -- form name ,contact,email,proposed location staet,city town ,   states and backend left
+becomea trainer     backend left
+msme , logo in last about us
+imquiry form name,contact,course category,course ,center      backend left
+looking for online course -- form interested for   backed left
+terms and conditions in footer privacy policy   ----------------done
+
+//help from caddeskindia
