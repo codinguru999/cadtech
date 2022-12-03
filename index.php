@@ -16,51 +16,47 @@ include "config.php";
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="./index.js"></script>
   <style>
-    #contact *{
+    #contact * {
       font-size: large;
-      
+
       color: #001D6E;
-  align-items: center;
-  justify-content: center;
-}
- #contact h5{
-  margin: auto;
-  justify-content: center;
- }
- #contac{
-  display: flex;
-  flex-direction: column;
- }
- #contac p{
-  margin-top: 1rem ;
- }
- #contac i{
-  margin: 1rem auto;
-  height: 2rem;
-  width: 3rem;
- }
- #contac button{
-  width: max-content;
-  margin: auto;
- }
+      align-items: center;
+      justify-content: center;
+    }
+
+    #contact h5 {
+      margin: auto;
+      justify-content: center;
+    }
+
+    #contac {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #contac p {
+      margin-top: 1rem;
+    }
+
+    #contac i {
+      margin: 1rem auto;
+      height: 2rem;
+      width: 3rem;
+    }
+
+    #contac button {
+      width: max-content;
+      margin: auto;
+    }
   </style>
 </head>
 
 
 
-<body onload="load()" style="background-color: white;">
-  <header >
-    <nav style="background-color: white;">
-      <div class="nav" style="background-color: white;">
-        <span>
-          <!-- changed structre agar 700 se kam hua to only icon dikhega -->
-          <a href="tel:+91 9084868584"><i class="fa fa-phone"></i><span>+91 9084868584</span></a>
-          <!-- <a href="mailto:cadtech.hrd@gmail.com"><i
-              class="fa-regular fa-envelope"></i><span>cadtech.hrd@gmail.com</span></a> -->
-        </span>
-
-      </div>
-      <div class="nav" style="background-color: white;">
+<body onload="load()">
+  <header>
+    <nav>
+      <div class="nav">
         <a href="index.php"><img src="./images/logo.png" class="logo" alt="logo">
         </a>
         <div>
@@ -76,7 +72,7 @@ include "config.php";
                 <ul>
                   <h2>Trending Courses</h2>
                   <?php
-                 
+
                   $sql = "SELECT * from course where rating=5.0";
                   $result = mysqli_query($connection, $sql);
                   $x = 1;
@@ -129,7 +125,7 @@ include "config.php";
                 </ul>
               </div>
             </li>
-           
+
             <li class="links">
               <a href="#contact">Contact Us</a>
             </li>
@@ -139,26 +135,26 @@ include "config.php";
     </nav>
   </header>
   <section>
-  <div class="slideshow-container">
+    <div class="slideshow-container">
 
-<div class="mySlides fade">
-  <img src="./images/monitor-1307227_960_720.jpg" style="width:100%">
-</div>
+      <div class="mySlides fade">
+        <img src="./images/monitor-1307227_960_720.jpg" style="width:100%">
+      </div>
 
-<div class="mySlides fade">
-  <img src="./images/code-1839406_960_720.jpg" style="width:100%">
-</div>
+      <div class="mySlides fade">
+        <img src="./images/code-1839406_960_720.jpg" style="width:100%">
+      </div>
 
-<div class="mySlides fade">
-  <img src="./businessman-4608276__340.jpg" style="width:100%">
-</div>
+      <div class="mySlides fade">
+        <img src="./businessman-4608276__340.jpg" style="width:100%">
+      </div>
 
-</div>
-<div style="text-align:center">
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-</div>
+    </div>
+    <div style="text-align:center">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
 
     <!-- for image section -->
   </section>
@@ -239,24 +235,29 @@ include "config.php";
       <div>
         <img src="./images/expirience.svg" alt="">
         <h3>Highly Experienced</h3>
-        <span>We have a great staff of certified and experienced teachers and world class reference guides for best quality training solution</span>
+        <span>We have a great staff of certified and experienced teachers and world class reference guides for best
+          quality training solution</span>
       </div>
       <div>
         <img src="./images/quiz.svg" alt="">
         <h3>Question, Quiz & Course</h3>
-        <span>We provide standard 35+ courses curated by the CPD (Curriculum & Product Development) team. It includes practical projects and helps with illustrations to better understand real-world usage</span>
+        <span>We provide standard 35+ courses curated by the CPD (Curriculum & Product Development) team. It includes
+          practical projects and helps with illustrations to better understand real-world usage</span>
       </div>
       <div>
         <img src="./images/support.svg" alt="">
         <h3>Dedicated Support</h3>
-        <span>We support our students after the course also. Whenever they want they can reach us and ask their doubts</span>
+        <span>We support our students after the course also. Whenever they want they can reach us and ask their
+          doubts</span>
       </div>
     </div>
   </section>
 
   <!-- side section -->
 
-
+  <side>
+    <a class="learn" name="inquiry">Enquire</a>
+  </side>
   <aside>
     <a class="learn" name="info1">
       <i class="fa-solid fa-circle-info"></i>
@@ -265,10 +266,6 @@ include "config.php";
       <i class="fa-brands fa-square-whatsapp"></i>
     </a>
   </aside>
-  <side>
-    
-    <a  class="learn" name="inquiry"> <span style="font-size: large;">Enqui re</span></a>
-  </side>
 
   <!-- side section close -->
 
@@ -280,17 +277,17 @@ include "config.php";
       <div>
         <i class="fa-solid fa-graduation-cap"></i>
         <div class="count" data-count="200">0</div>
-        Classes Complete
+        Classes <br> Complete
       </div>
       <div>
         <i class="fa-solid fa-book-open-reader"></i>
         <div class="count" data-count="400">0</div>
-        Students Enrolled
+        Students <br> Enrolled
       </div>
       <div>
         <i class="fa-solid fa-chalkboard-user"></i>
         <div class="count" data-count="35">0</div>
-        Certified Teachers
+        Certified <br> Courses
       </div>
     </div>
   </section>
@@ -299,7 +296,7 @@ include "config.php";
   <!-- online course section -->
 
 
-  <section class="section" style="width: 100% !important;" >
+  <section class="section" style="width: 100% !important;">
     <div class="middle" style="background-color: #f9e4d9;">
       <h1>Want to learn online</h1>
       <p>We also provide online learning you can also enroll with us for online courses</p>
@@ -344,7 +341,7 @@ include "config.php";
   <section class="section">
     <h2>What people say about us</h2>
     <script src="https://widget.trustmary.com/ve0QnlUGK"></script>
-    </section>
+  </section>
 
   <!-- Contact form starts -->
 
@@ -353,11 +350,11 @@ include "config.php";
     <div class="middle" id="contac" style="background-color: #ffa371;;">
 
       <h3 style="font-weight: bold;">Obtaining further information by contacting our experienced staff</h4>
-      <p >We're available for 8 hours a day! Contact to require a detailed analysis and assessment of your plan</p>
-      <i class="fa fa-phone" style="height: 2rem; width: 2rem;"></i>
-      <span style="font-weight: bold;">Reach Out Now!</span>
-      <a href="tel:+91 9084868584" style="margin-top: 1rem; margin-bottom: 1rem;">+919084868584</a>
-      <button><a href="tel:+91 9084868584" style="font-weight: bold;">Contact Us</a></button>
+        <p>We're available for 8 hours a day! Contact to require a detailed analysis and assessment of your plan</p>
+        <i class="fa fa-phone" style="height: 2rem; width: 2rem;"></i>
+        <span style="font-weight: bold;">Reach Out Now!</span>
+        <a href="tel:+91 9084868584" style="margin-top: 1rem; margin-bottom: 1rem;">+919084868584</a>
+        <button><a href="tel:+91 9084868584" style="font-weight: bold;">Contact Us</a></button>
     </div>
   </section>
   <div>
@@ -365,7 +362,7 @@ include "config.php";
   </div>
   <!-- footer starts -->
   <footer>
-    
+
     <ul>
       <h1>Company</h1>
       <li><a href="about.php">About Us</a></li>
@@ -394,8 +391,8 @@ include "config.php";
       <h3>2nd Branch</h3>
       <address><i class="fa-solid fa-location-dot"></i>105a, near Classic Stationary, Lane 1, Khanna Nagar, Ranipur
         More, Haridwar</address>
-      <address style="display:flex; flex-direction: row; margin: auto; justify-content: center;"><a href="http://facebook.com/cadtechharidwar"><i
-            class="fa-brands fa-facebook"></i></a>
+      <address style="display:flex; flex-direction: row; margin: auto; justify-content: center;"><a
+          href="http://facebook.com/cadtechharidwar"><i class="fa-brands fa-facebook"></i></a>
         <i class="fa-brands fa-twitter"></i>
         <i class="fa-brands fa-linkedin"></i>
         <a href="http://instagram.com/cad_tech_institute/"><i class="fa-brands fa-instagram"></i></a>
@@ -405,7 +402,7 @@ include "config.php";
 
   <!-- cards loop with php to show details of courses -->
   <?php
- 
+
   $sql = "SELECT * from course where rating=5.0";
   $result = mysqli_query($connection, $sql);
   $x = 0;
@@ -532,19 +529,19 @@ include "config.php";
   <div id="popup">
   </div>
   <?php
-include "config.php";
-include_once "Common.php";
-$common = new Common();
-$allCountries = $common->getCountries($connection);
-?>
+  include "config.php";
+  include_once "Common.php";
+  $common = new Common();
+  $allCountries = $common->getCountries($connection);
+  ?>
   <!-- form for partnership with us -->
   <div class="hidden" id="Partner">
     <h1>
       Become Our Partner
     </h1>
     <form action="forms.php" method='post'>
-      <label for="name" >Name</label>
-      <input type="text" name="namep" id="name" >
+      <label for="name">Name</label>
+      <input type="text" name="namep" id="name">
       <label for="email">Email</label>
       <input type="email" name="emailp" id="email">
       <label for="mobile">Mobile</label>
@@ -552,16 +549,16 @@ $allCountries = $common->getCountries($connection);
       <h3>Proposed location</h3>
       <label for="addline">Address</label>
       <input type="text" name="addlinep" id="addline">
-     
-        <label>State <span style="color:red">*</span></label>
-        <select class="form-control" name="state" id="stateId" onchange="getCityByState();"  >
-            <option value="">State</option>
-        </select>
 
-        <label>City <span style="color:red">*</span></label>
-        <select class="form-control" name="city" id="cityDiv">
-            <option value="">City</option>
-        </select>
+      <label>State <span style="color:red">*</span></label>
+      <select class="form-control" name="state" id="stateId" onchange="getCityByState();">
+        <option value="">State</option>
+      </select>
+
+      <label>City <span style="color:red">*</span></label>
+      <select class="form-control" name="city" id="cityDiv">
+        <option value="">City</option>
+      </select>
       </select>
       <label for="zip">ZipCode</label>
       <input type="number" name="zipp" id="zip">
@@ -666,7 +663,7 @@ $allCountries = $common->getCountries($connection);
         p.style.display = 'none';
       }
     })
-    function openPop(e){
+    function openPop(e) {
       let x = document.getElementById(e.name)
       p.style.display = 'flex'
       let div = document.createElement('div')
@@ -753,48 +750,48 @@ $allCountries = $common->getCountries($connection);
     }
   </script>
   <script>
-let slideIndex = 0;
-showSlides();
+    let slideIndex = 0;
+    showSlides();
 
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 4000); // Change image every 2 seconds
-}
-</script>
-<script>
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      setTimeout(showSlides, 4000); // Change image every 2 seconds
+    }
+  </script>
+  <script>
     function getStatesByCountry() {
-        var countryId = 101;
-        $.post("ajax.php",{getStatesByCountry:'getStatesByCountry',countryId:countryId},function (response) {
-           // alert(response);
-            var data = response.split('^');
-            var stateData = data[1];
-            $("#stateId").html(stateData);
-        });
+      var countryId = 101;
+      $.post("ajax.php", { getStatesByCountry: 'getStatesByCountry', countryId: countryId }, function (response) {
+        // alert(response);
+        var data = response.split('^');
+        var stateData = data[1];
+        $("#stateId").html(stateData);
+      });
     }
     getStatesByCountry();
     // (101, 'IN', 'India', 91)
     function getCityByState() {
-        var stateId = $("#stateId").val();
-        $.post("ajax.php",{getCityByState:'getCityByState',stateId:stateId},function (response) {
-            // alert(response);
-            var data = response.split('^');
-            var cityData = data[1];
-            $("#cityDiv").html(cityData);
-        });
+      var stateId = $("#stateId").val();
+      $.post("ajax.php", { getCityByState: 'getCityByState', stateId: stateId }, function (response) {
+        // alert(response);
+        var data = response.split('^');
+        var cityData = data[1];
+        $("#cityDiv").html(cityData);
+      });
     }
-</script>
+  </script>
 </body>
 
 </html>

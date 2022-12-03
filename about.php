@@ -34,48 +34,44 @@
     .choose-us img {
       height: initial;
     }
-    .logos{
+
+    .logos {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-evenly;
       flex-wrap: wrap;
     }
-    .logos img{
+
+    .logos img {
       width: 30%;
       padding: 0 0-5rem;
       max-width: 120px;
       min-width: 25px;
     }
-    .container > div {
-  display: flex;
-  flex-direction: column;
-  border-left: 1px solid white;
-  flex-wrap: wrap;}
-  @media screen and (max-width: 700px) {
-    #dat{
-      font-size: xx-small;
-      word-wrap: none;
+
+    .container>div {
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid white;
+      flex-wrap: wrap;
     }
-  }
+
+    @media screen and (max-width: 700px) {
+      #dat {
+        font-size: xx-small;
+        word-wrap: none;
+      }
+    }
   </style>
 </head>
 
 <body style="background-color: white;">
-<?php
+  <?php
 include "config.php";
 ?>
-<header>
+  <header>
     <nav>
-      <div class="nav">
-        <span>
-          <!-- changed structre agar 700 se kam hua to only icon dikhega -->
-          <a href="tel:+91 9084868584"><i class="fa fa-phone"></i><span>+91 9084868584</span></a>
-          <!-- <a href="to:cadtech.hrd@gmail.com"><i
-              class="fa-rmailegular fa-envelope"></i><span>cadtech.hrd@gmail.com</span></a> -->
-        </span>
-
-      </div>
       <div class="nav">
         <a href="index.php"><img src="./images/logo.png" class="logo" alt="logo">
         </a>
@@ -92,7 +88,7 @@ include "config.php";
                 <ul>
                   <h2>Popular courses</h2>
                   <?php
-                  
+
                   $sql = "SELECT * from course where rating=5.0";
                   $result = mysqli_query($connection, $sql);
                   $x = 1;
@@ -142,7 +138,7 @@ include "config.php";
                 </ul>
               </div>
             </li>
-            
+
             <li class="links">
               <a href="./index.php#contact">Contact Us</a>
             </li>
@@ -155,6 +151,9 @@ include "config.php";
     <img src="images\laptop-2838921_960_720.jpg" alt="" id="myimg" />
     <!-- for image section -->
   </section>
+  <side>
+    <a class="learn" name="inquiry">Enquire</a>
+  </side>
   <aside>
     <a class="learn" name="info1">
       <i class="fa-solid fa-circle-info"></i>
@@ -163,33 +162,30 @@ include "config.php";
       <i class="fa-brands fa-square-whatsapp"></i>
     </a>
   </aside>
-  <side>
-    
-    <a  class="learn" name="inquiry"> <span>Enqui re</span></a>
-  </side>
   <h1 style="margin: 1rem;">About Us</h1>
   <div style="align-items: centre; text-align: center; justify-content: center; padding: 1.5rem" id="heading">
 
     <h2 style="font-size: xx-large;">Learn with passion to live with purpose</h2>
-    <span id="dat">We are a technical workforce development enterprise.We think that everyone ought to have the chance to contribute to technological development and cultivate future abilities.</span>
+    <span id="dat">We are a technical workforce development enterprise.We think that everyone ought to have the chance
+      to contribute to technological development and cultivate future abilities.</span>
   </div>
   <section class="numbers section">
     <div class="container">
       <div>
         <i class="fa-solid fa-graduation-cap"></i>
         <div class="count" data-count="200">0</div>
-        Classes Complete
+        Classes <br>Complete
       </div>
       <div>
 
         <i class="fa-solid fa-book-open-reader"></i>
         <div class="count" data-count="400">0</div>
-        Students Enrolled
+        Students<br> Enrolled
       </div>
       <div>
         <i class="fa-solid fa-chalkboard-user"></i>
         <div class="count" data-count="35">0</div>
-        Certified Teachers
+        Certified <br>Courses
       </div>
     </div>
   </section>
@@ -202,29 +198,34 @@ include "config.php";
       <div>
         <img src="./images/courses-7.jpg" alt="">
         <h3>Who we are</h3>
-        <span>With learning pathways and courses produced by industry professionals, we assist enterprises and people in benchmarking skills across jobs and developing safe, dependable products.</span>
+        <span>With learning pathways and courses produced by industry professionals, we assist enterprises and people in
+          benchmarking skills across jobs and developing safe, dependable products.</span>
       </div>
       <div>
         <img src="./images/courses-4.webp" alt="">
         <h3>What we do</h3>
-        <span>We offers comprehensive software training on CAD, CAM, CAE and CS/IT. Our training programs do not just focus on theoretical concepts, but its practical aspects fulfill the career objectives of the students as well as professionals.</span>
+        <span>We offers comprehensive software training on CAD, CAM, CAE and CS/IT. Our training programs do not just
+          focus on theoretical concepts, but its practical aspects fulfill the career objectives of the students as well
+          as professionals.</span>
       </div>
       <div>
         <img src="./images/courses-8.jpg" alt="">
         <h3>Our motto</h3>
-        <span>Quality education is our motto and we focus on the overall development of every student and that’s why our highly experienced or expert instructors not only deliver the theoretical contents but also put a great emphasis on quality and practical knowledge of each software courses</span>
+        <span>Quality education is our motto and we focus on the overall development of every student and that’s why our
+          highly experienced or expert instructors not only deliver the theoretical contents but also put a great
+          emphasis on quality and practical knowledge of each software courses</span>
       </div>
     </div>
   </section>
 
-    <section class="section logos">
-      <img src="images\msme.png" alt="">
-      <img src="CAD_TECH_LOGO_2-.png" alt="" />
-  <img src="images\AIAIT.png" alt="">
-</section>
- <!-- footer starts -->
- <footer>
-    
+  <section class="section logos">
+    <img src="images\msme.png" alt="">
+    <img src="CAD_TECH_LOGO_2-.png" alt="" />
+    <img src="images\AIAIT.png" alt="">
+  </section>
+  <!-- footer starts -->
+  <footer>
+
     <ul>
       <h1>Company</h1>
       <li><a href="about.php">About Us</a></li>
@@ -261,13 +262,13 @@ include "config.php";
       </address>
     </div>
   </footer>
-<?php
- 
-  $sql = "select * from course where rating=5.0";
-  $result = mysqli_query($connection, $sql);
-  $x = 0;
-  while ($row = mysqli_fetch_array($result)) {
-    echo '<div class="hidden"  id="' . $row['name'] . '">
+  <?php
+
+$sql = "select * from course where rating=5.0";
+$result = mysqli_query($connection, $sql);
+$x = 0;
+while ($row = mysqli_fetch_array($result)) {
+  echo '<div class="hidden"  id="' . $row['name'] . '">
     <h1>' . $row['name'] . '</h1>
     <div>
       <span>Topics: ' . $row['topicnumber'] . '</span>
@@ -280,26 +281,26 @@ include "config.php";
     <img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '" alt="" />
       <ul>
         <h2>Topics</h2>';
-    $dat = json_decode($row['topics']);
-    if (gettype($dat) == "object") {
-      foreach ($dat as $key => $value) {
-        echo "<h4>" . $key . "</h4>;";
-        echo "<ul>";
-        foreach ($value as $ar) {
-          echo "<li>" . $ar . "</li>";
-        }
-        echo "</ul>";
+  $dat = json_decode($row['topics']);
+  if (gettype($dat) == "object") {
+    foreach ($dat as $key => $value) {
+      echo "<h4>" . $key . "</h4>;";
+      echo "<ul>";
+      foreach ($value as $ar) {
+        echo "<li>" . $ar . "</li>";
       }
-    } else if (gettype($dat) == "array") {
-      foreach ($dat as $ar) {
-        echo "<li>" . $ar . "</li>,";
-      }
+      echo "</ul>";
     }
-    echo '</ul>
+  } else if (gettype($dat) == "array") {
+    foreach ($dat as $ar) {
+      echo "<li>" . $ar . "</li>";
+    }
+  }
+  echo '</ul>
     </div>
   </div>';
-  }
-  ?>
+}
+?>
   <div class="hidden" id="info1">
     <h1>
 
@@ -354,19 +355,19 @@ include "config.php";
   <div id="popup">
   </div>
   <?php
-include "config.php";
-include_once "Common.php";
-$common = new Common();
-$allCountries = $common->getCountries($connection);
-?>
+  include "config.php";
+  include_once "Common.php";
+  $common = new Common();
+  $allCountries = $common->getCountries($connection);
+  ?>
   <!-- form for partnership with us -->
   <div class="hidden" id="Partner">
     <h1>
       Become Our Partner
     </h1>
     <form action="forms.php" method='post'>
-      <label for="name" >Name</label>
-      <input type="text" name="namep" id="name" >
+      <label for="name">Name</label>
+      <input type="text" name="namep" id="name">
       <label for="email">Email</label>
       <input type="email" name="emailp" id="email">
       <label for="mobile">Mobile</label>
@@ -374,16 +375,16 @@ $allCountries = $common->getCountries($connection);
       <h3>Proposed location</h3>
       <label for="addline">Address</label>
       <input type="text" name="addlinep" id="addline">
-     
-        <label>State <span style="color:red">*</span></label>
-        <select class="form-control" name="state" id="stateId" onchange="getCityByState();"  >
-            <option value="">State</option>
-        </select>
 
-        <label>City <span style="color:red">*</span></label>
-        <select class="form-control" name="city" id="cityDiv">
-            <option value="">City</option>
-        </select>
+      <label>State <span style="color:red">*</span></label>
+      <select class="form-control" name="state" id="stateId" onchange="getCityByState();">
+        <option value="">State</option>
+      </select>
+
+      <label>City <span style="color:red">*</span></label>
+      <select class="form-control" name="city" id="cityDiv">
+        <option value="">City</option>
+      </select>
       </select>
       <label for="zip">ZipCode</label>
       <input type="number" name="zipp" id="zip">
@@ -488,7 +489,7 @@ $allCountries = $common->getCountries($connection);
         p.style.display = 'none';
       }
     })
-    function openPop(e){
+    function openPop(e) {
       let x = document.getElementById(e.name)
       p.style.display = 'flex'
       let div = document.createElement('div')
@@ -575,48 +576,48 @@ $allCountries = $common->getCountries($connection);
     }
   </script>
   <script>
-let slideIndex = 0;
-showSlides();
+    let slideIndex = 0;
+    showSlides();
 
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 4000); // Change image every 2 seconds
-}
-</script>
-<script>
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      setTimeout(showSlides, 4000); // Change image every 2 seconds
+    }
+  </script>
+  <script>
     function getStatesByCountry() {
-        var countryId = 101;
-        $.post("ajax.php",{getStatesByCountry:'getStatesByCountry',countryId:countryId},function (response) {
-           // alert(response);
-            var data = response.split('^');
-            var stateData = data[1];
-            $("#stateId").html(stateData);
-        });
+      var countryId = 101;
+      $.post("ajax.php", { getStatesByCountry: 'getStatesByCountry', countryId: countryId }, function (response) {
+        // alert(response);
+        var data = response.split('^');
+        var stateData = data[1];
+        $("#stateId").html(stateData);
+      });
     }
     getStatesByCountry();
     // (101, 'IN', 'India', 91)
     function getCityByState() {
-        var stateId = $("#stateId").val();
-        $.post("ajax.php",{getCityByState:'getCityByState',stateId:stateId},function (response) {
-            // alert(response);
-            var data = response.split('^');
-            var cityData = data[1];
-            $("#cityDiv").html(cityData);
-        });
+      var stateId = $("#stateId").val();
+      $.post("ajax.php", { getCityByState: 'getCityByState', stateId: stateId }, function (response) {
+        // alert(response);
+        var data = response.split('^');
+        var cityData = data[1];
+        $("#cityDiv").html(cityData);
+      });
     }
-</script>
+  </script>
 
 </body>
 

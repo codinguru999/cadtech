@@ -14,20 +14,11 @@
 </head>
 
 <body style="background-color: white;">
-<?php
+  <?php
 include "config.php";
 ?>
-<header>
+  <header>
     <nav>
-      <div class="nav">
-        <span>
-          <!-- changed structre agar 700 se kam hua to only icon dikhega -->
-          <a href="tel:+91 9084868584"><i class="fa fa-phone"></i><span>+91 9084868584</span></a>
-          <!-- <a href="mailto:cadtech.hrd@gmail.com"><i
-              class="fa-regular fa-envelope"></i><span>cadtech.hrd@gmail.com</span></a> -->
-        </span>
-
-      </div>
       <div class="nav">
         <a href="index.php"><img src="./images/logo.png" class="logo" alt="logo">
         </a>
@@ -44,8 +35,8 @@ include "config.php";
                 <ul>
                   <h2>Popular courses</h2>
                   <?php
-                  
-                  
+
+
                   $sql = "SELECT * from course where rating=5.0";
                   $result = mysqli_query($connection, $sql);
                   $x = 1;
@@ -95,7 +86,7 @@ include "config.php";
                 </ul>
               </div>
             </li>
-            
+
             <li class="links">
               <a href="./index.php#contact">Contact Us</a>
             </li>
@@ -129,28 +120,28 @@ include "config.php";
     </a>
   </aside>
   <side>
-    
-    <a  class="learn" name="inquiry"> <span>Enqui re</span></a>
+
+    <a class="learn" name="inquiry"> <span>Enqui re</span></a>
   </side>
- <section class="section">
+  <section class="section">
     </div>
     <div class="coures">
       <?php
-      
+
       if ($connection) {
         $name = $_GET["name"];
-if ($_GET["name"]=="Mechanical" || $_GET["name"]=="Civil" || $_GET["name"]=="Electrical" ){
-  $sql = "select * from course where category='$name' or name='Autocad'";
-}else{
+        if ($_GET["name"] == "Mechanical" || $_GET["name"] == "Civil" || $_GET["name"] == "Electrical") {
+          $sql = "select * from course where category='$name' or name='Autocad'";
+        } else {
 
-  if ($_GET["name"] != "All") {
-    
-    $sql = "select * from course where category='$name'";
-  } else {
-    
-    $sql = "select * from course";
-  }
-}
+          if ($_GET["name"] != "All") {
+
+            $sql = "select * from course where category='$name'";
+          } else {
+
+            $sql = "select * from course";
+          }
+        }
         $result = mysqli_query($connection, $sql);
 
         $x = 1;
@@ -178,9 +169,9 @@ if ($_GET["name"]=="Mechanical" || $_GET["name"]=="Civil" || $_GET["name"]=="Ele
       ?>
     </div>
   </section>
- <!-- footer starts -->
- <footer>
-    
+  <!-- footer starts -->
+  <footer>
+
     <ul>
       <h1>Company</h1>
       <li><a href="about.php">About Us</a></li>
@@ -217,24 +208,24 @@ if ($_GET["name"]=="Mechanical" || $_GET["name"]=="Civil" || $_GET["name"]=="Ele
       </address>
     </div>
   </footer>
- <?php
+  <?php
  $name = $_GET["name"];
- if ($_GET["name"]=="Mechanical" || $_GET["name"]=="Civil" || $_GET["name"]=="Electrical" ){
+ if ($_GET["name"] == "Mechanical" || $_GET["name"] == "Civil" || $_GET["name"] == "Electrical") {
    $sql = "select * from course where category='$name' or rating=5.0 or name='Autocad'";
- }else{
- 
+ } else {
+
    if ($_GET["name"] != "All") {
-     
+
      $sql = "select * from course where category='$name' or rating=5.0";
    } else {
-     
+
      $sql = "select * from course";
    }
  }
-  $result = mysqli_query($connection, $sql);
-  $x = 0;
-  while ($row = mysqli_fetch_array($result)) {
-    echo '<div class="hidden"  id="' . $row['name'] . '">
+ $result = mysqli_query($connection, $sql);
+ $x = 0;
+ while ($row = mysqli_fetch_array($result)) {
+   echo '<div class="hidden"  id="' . $row['name'] . '">
     <h1>' . $row['name'] . '</h1>
     <div>
       <span>Topics: ' . $row['topicnumber'] . '</span>
@@ -247,26 +238,26 @@ if ($_GET["name"]=="Mechanical" || $_GET["name"]=="Civil" || $_GET["name"]=="Ele
     <img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '" alt="" />
       <ul>
         <h2>Topics</h2>';
-    $dat = json_decode($row['topics']);
-    if (gettype($dat) == "object") {
-      foreach ($dat as $key => $value) {
-        echo "<h4>" . $key . "</h4>;";
-        echo "<ul>";
-        foreach ($value as $ar) {
-          echo "<li>" . $ar . "</li>";
-        }
-        echo "</ul>";
-      }
-    } else if (gettype($dat) == "array") {
-      foreach ($dat as $ar) {
-        echo "<li>" . $ar . "</li>,";
-      }
-    }
-    echo '</ul>
+   $dat = json_decode($row['topics']);
+   if (gettype($dat) == "object") {
+     foreach ($dat as $key => $value) {
+       echo "<h4>" . $key . "</h4>;";
+       echo "<ul>";
+       foreach ($value as $ar) {
+         echo "<li>" . $ar . "</li>";
+       }
+       echo "</ul>";
+     }
+   } else if (gettype($dat) == "array") {
+     foreach ($dat as $ar) {
+       echo "<li>" . $ar . "</li>";
+     }
+   }
+   echo '</ul>
     </div>
   </div>';
-  }
-  ?>
+ }
+ ?>
   <div class="hidden" id="info1">
     <h1>
 
@@ -321,19 +312,19 @@ if ($_GET["name"]=="Mechanical" || $_GET["name"]=="Civil" || $_GET["name"]=="Ele
   <div id="popup">
   </div>
   <?php
-include "config.php";
-include_once "Common.php";
-$common = new Common();
-$allCountries = $common->getCountries($connection);
-?>
+  include "config.php";
+  include_once "Common.php";
+  $common = new Common();
+  $allCountries = $common->getCountries($connection);
+  ?>
   <!-- form for partnership with us -->
   <div class="hidden" id="Partner">
     <h1>
       Become Our Partner
     </h1>
     <form action="forms.php" method='post'>
-      <label for="name" >Name</label>
-      <input type="text" name="namep" id="name" >
+      <label for="name">Name</label>
+      <input type="text" name="namep" id="name">
       <label for="email">Email</label>
       <input type="email" name="emailp" id="email">
       <label for="mobile">Mobile</label>
@@ -341,16 +332,16 @@ $allCountries = $common->getCountries($connection);
       <h3>Proposed location</h3>
       <label for="addline">Address</label>
       <input type="text" name="addlinep" id="addline">
-     
-        <label>State <span style="color:red">*</span></label>
-        <select class="form-control" name="state" id="stateId" onchange="getCityByState();"  >
-            <option value="">State</option>
-        </select>
 
-        <label>City <span style="color:red">*</span></label>
-        <select class="form-control" name="city" id="cityDiv">
-            <option value="">City</option>
-        </select>
+      <label>State <span style="color:red">*</span></label>
+      <select class="form-control" name="state" id="stateId" onchange="getCityByState();">
+        <option value="">State</option>
+      </select>
+
+      <label>City <span style="color:red">*</span></label>
+      <select class="form-control" name="city" id="cityDiv">
+        <option value="">City</option>
+      </select>
       </select>
       <label for="zip">ZipCode</label>
       <input type="number" name="zipp" id="zip">
@@ -455,7 +446,7 @@ $allCountries = $common->getCountries($connection);
         p.style.display = 'none';
       }
     })
-    function openPop(e){
+    function openPop(e) {
       let x = document.getElementById(e.name)
       p.style.display = 'flex'
       let div = document.createElement('div')
@@ -542,48 +533,48 @@ $allCountries = $common->getCountries($connection);
     }
   </script>
   <script>
-let slideIndex = 0;
-showSlides();
+    let slideIndex = 0;
+    showSlides();
 
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 4000); // Change image every 2 seconds
-}
-</script>
-<script>
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      setTimeout(showSlides, 4000); // Change image every 2 seconds
+    }
+  </script>
+  <script>
     function getStatesByCountry() {
-        var countryId = 101;
-        $.post("ajax.php",{getStatesByCountry:'getStatesByCountry',countryId:countryId},function (response) {
-           // alert(response);
-            var data = response.split('^');
-            var stateData = data[1];
-            $("#stateId").html(stateData);
-        });
+      var countryId = 101;
+      $.post("ajax.php", { getStatesByCountry: 'getStatesByCountry', countryId: countryId }, function (response) {
+        // alert(response);
+        var data = response.split('^');
+        var stateData = data[1];
+        $("#stateId").html(stateData);
+      });
     }
     getStatesByCountry();
     // (101, 'IN', 'India', 91)
     function getCityByState() {
-        var stateId = $("#stateId").val();
-        $.post("ajax.php",{getCityByState:'getCityByState',stateId:stateId},function (response) {
-            // alert(response);
-            var data = response.split('^');
-            var cityData = data[1];
-            $("#cityDiv").html(cityData);
-        });
+      var stateId = $("#stateId").val();
+      $.post("ajax.php", { getCityByState: 'getCityByState', stateId: stateId }, function (response) {
+        // alert(response);
+        var data = response.split('^');
+        var cityData = data[1];
+        $("#cityDiv").html(cityData);
+      });
     }
-</script>
+  </script>
 
 </body>
 
