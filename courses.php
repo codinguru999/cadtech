@@ -15,84 +15,73 @@
 
 <body style="background-color: white;">
   <?php
-include "config.php";
-?>
+  include "config.php";
+  ?>
   <header>
     <nav>
       <div class="nav">
-        <a href="index.php"><img src="./images/logo.png" class="logo" alt="logo">
-        </a>
+        <a href="./"><img src="./images/logo.png" class="logo" alt="logo"></a>
         <div>
-          <label class="links" for="ham"><i class="fa-solid fa-bars"></i></label>
+          <label class="links" for="ham" id="menu"><i class="fa-solid fa-bars"></i></label>
           <input type="checkbox" name="ham" id="ham">
           <ul id="show">
-            <li class="links">
-              <a href="about.php">About Us</a>
-            </li>
-            <li class="links course-link">
-              <a>Courses</a>
-              <div class="hover">
-                <ul>
-                  <h2>Popular courses</h2>
+            <div>
+              <div class="row">
+                <img src="./images/logo.png" class="logo" alt="logo">
+                <i class="fa-solid fa-xmark" id="cross"></i>
+              </div>
+              <div class="list">
+                <span class='row'>Courses<label for="n1"><i class="fa-solid fa-chevron-down"></i></label></span>
+                <input type="radio" name="drop" id="n1">
+                <div class="list">
                   <?php
-
-
-                  $sql = "SELECT * from course where rating=5.0";
+                  $sql = "SELECT * from category";
                   $result = mysqli_query($connection, $sql);
-                  $x = 1;
                   while ($row = mysqli_fetch_array($result)) {
-                    echo '<a class="learn" name="' . $row['name'] . '"><li>' . $row['name'] . '</li></a>';
-                    $x++;
+                    $name = $row['categor'];
+                    echo '<li><span class="row"><a href="./courses.php?name=' . $name . '">' . $name . '</a>
+                      <label for="' . str_replace(' ', '_', $name) . '"><i class="fa-solid fa-chevron-down"></i></label></span>
+                      <input type="radio" name="drop2" id=' . str_replace(' ', '_', $name) . '>
+                      <div class="list">';
+                    $sql2 = "SELECT * from course where category='$name'";
+                    $result2 = mysqli_query($connection, $sql2);
+                    while ($row2 = mysqli_fetch_array($result2)) {
+                      echo '<a class="learn row" name="' . $row2['name'] . '">' . $row2['name'] . '</a>';
+                    }
+                    echo ('</div></li>');
                   }
                   ?>
-                </ul>
-                <ul>
-                  <h2>course category</h2>
-                  <a href="./courses.php?name=Web Programming">
-                    <li> Web Development</li>
-                  </a>
-                  <a href="./courses.php?name=Programming">
-                    <li> Programming</li>
-                  </a>
-                  <a href="./courses.php?name=Mechanical">
-                    <li> Mechanical Engineering</li>
-                  </a>
-                  <a href="./courses.php?name=Civil">
-                    <li> Civil </li>
-                  </a>
-                  <a href="./courses.php?name=Electrical">
-                    <li> Electrical</li>
-                  </a>
-                  <a href="./courses.php?name=SAP">
-                    <li> SAP</li>
-                  </a>
-                  <a href="./courses.php?name=Diploma">
-                    <li> Diploma</li>
-                  </a>
-                </ul>
+                </div>
               </div>
-            </li>
-            <li class="links course-link">
-              <a>Services</a>
-              <div class="hover">
-                <ul>
-                  <h1>Services</h1>
-                  <!-- <li>Teaching</li> -->
-                  <li>Web Designing</li>
-                  <li>Interior Designing</li>
-                  <li>Exterior Designing</li>
-                  <li>Home Plans</li>
-                  <li>Machine Designing</li>
-                </ul>
+              <div class='list'>
+                <span class='row'>
+                  <span>Services</span>
+                  <label for="n2"><i class="fa-solid fa-chevron-down"></i></label>
+                </span>
+                <input type="radio" name="drop" id="n2">
+                <div class="list">
+                  <li class="row">Web Designing</li>
+                  <li class="row">Interior Designing</li>
+                  <li class="row">Exterior Designing</li>
+                  <li class="row">Home Plans</li>
+                  <li class="row">Machine Designing</li>
+                </div>
               </div>
-            </li>
-
-            <li class="links">
-              <a href="./index.php#contact">Contact Us</a>
-            </li>
+              <div class="row">
+                <a class="learn" name="onlineteach">Online course</a>
+              </div>
+              <div class="row">
+                <a class="learn" name="Students_Corner">Students Corner</a>
+              </div>
+              <div class="row">
+                <a href="about.php">About Us</a>
+              </div>
+              <div class="row">
+                <a href="./index.php#contact">Contact Us</a>
+              </div>
+            </div>
           </ul>
         </div>
-      </div>
     </nav>
   </header>
   <section>
@@ -120,8 +109,7 @@ include "config.php";
     </a>
   </aside>
   <side>
-
-    <a class="learn" name="inquiry"> <span>Enqui re</span></a>
+    <a class="learn" name="inquiry">Enquire</a>
   </side>
   <section class="section">
     </div>
@@ -177,7 +165,7 @@ include "config.php";
       <li><a href="about.php">About Us</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a class="learn" name="Students_Corner">Students Corner</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="./index.php#contact">Contact</a></li>
       <li><a class="learn" name="Trainer">Become a Trainer</a></li>
       <li><a class="learn" name="Privacy_Policy"> Privacy Policy</a></li>
       <li><a class="learn" name="T&C"> Tearms and Condition</a></li>
@@ -209,23 +197,23 @@ include "config.php";
     </div>
   </footer>
   <?php
- $name = $_GET["name"];
- if ($_GET["name"] == "Mechanical" || $_GET["name"] == "Civil" || $_GET["name"] == "Electrical") {
-   $sql = "select * from course where category='$name' or rating=5.0 or name='Autocad'";
- } else {
+  $name = $_GET["name"];
+  if ($_GET["name"] == "Mechanical" || $_GET["name"] == "Civil" || $_GET["name"] == "Electrical") {
+    $sql = "select * from course where category='$name' or rating=5.0 or name='Autocad'";
+  } else {
 
-   if ($_GET["name"] != "All") {
+    if ($_GET["name"] != "All") {
 
-     $sql = "select * from course where category='$name' or rating=5.0";
-   } else {
+      $sql = "select * from course where category='$name' or rating=5.0";
+    } else {
 
-     $sql = "select * from course";
-   }
- }
- $result = mysqli_query($connection, $sql);
- $x = 0;
- while ($row = mysqli_fetch_array($result)) {
-   echo '<div class="hidden"  id="' . $row['name'] . '">
+      $sql = "select * from course";
+    }
+  }
+  $result = mysqli_query($connection, $sql);
+  $x = 0;
+  while ($row = mysqli_fetch_array($result)) {
+    echo '<div class="hidden"  id="' . $row['name'] . '">
     <h1>' . $row['name'] . '</h1>
     <div>
       <span>Topics: ' . $row['topicnumber'] . '</span>
@@ -238,26 +226,26 @@ include "config.php";
     <img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '" alt="" />
       <ul>
         <h2>Topics</h2>';
-   $dat = json_decode($row['topics']);
-   if (gettype($dat) == "object") {
-     foreach ($dat as $key => $value) {
-       echo "<h4>" . $key . "</h4>;";
-       echo "<ul>";
-       foreach ($value as $ar) {
-         echo "<li>" . $ar . "</li>";
-       }
-       echo "</ul>";
-     }
-   } else if (gettype($dat) == "array") {
-     foreach ($dat as $ar) {
-       echo "<li>" . $ar . "</li>";
-     }
-   }
-   echo '</ul>
+    $dat = json_decode($row['topics']);
+    if (gettype($dat) == "object") {
+      foreach ($dat as $key => $value) {
+        echo "<h4>" . $key . "</h4>;";
+        echo "<ul>";
+        foreach ($value as $ar) {
+          echo "<li>" . $ar . "</li>";
+        }
+        echo "</ul>";
+      }
+    } else if (gettype($dat) == "array") {
+      foreach ($dat as $ar) {
+        echo "<li>" . $ar . "</li>";
+      }
+    }
+    echo '</ul>
     </div>
   </div>';
- }
- ?>
+  }
+  ?>
   <div class="hidden" id="info1">
     <h1>
 

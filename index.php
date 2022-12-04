@@ -15,6 +15,14 @@ include "config.php";
   <title>Cad Tech</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="./index.js"></script>
+  <script>
+    function band() {
+      console.log('yes');
+      ele = document.getElementsByTagName("input");
+      for (var i = 0; i < ele.length; i++)
+        ele[i].checked = false;
+    }
+  </script>
   <style>
     #contact * {
       font-size: large;
@@ -57,81 +65,68 @@ include "config.php";
   <header>
     <nav>
       <div class="nav">
-        <a href="index.php"><img src="./images/logo.png" class="logo" alt="logo">
-        </a>
+        <a href="./"><img src="./images/logo.png" class="logo" alt="logo"></a>
         <div>
           <label class="links" for="ham" id="menu"><i class="fa-solid fa-bars"></i></label>
           <input type="checkbox" name="ham" id="ham">
           <ul id="show">
-            <li class="links">
-              <a href="about.php">About Us</a>
-            </li>
-            <li class="links course-link">
-              <a>Courses</a>
-              <div class="hover">
-                <ul>
-                  <h2>Trending Courses</h2>
+            <div>
+              <div class="row">
+                <img src="./images/logo.png" class="logo" alt="logo">
+                <i class="fa-solid fa-xmark" id="cross"></i>
+              </div>
+              <div class="list">
+                <span class='row'>Courses<label for="n1"><i class="fa-solid fa-chevron-down"></i></label></span>
+                <input type="radio" name="drop" id="n1">
+                <div class="list">
                   <?php
-
-                  $sql = "SELECT * from course where rating=5.0";
+                  $sql = "SELECT * from category";
                   $result = mysqli_query($connection, $sql);
-                  $x = 1;
                   while ($row = mysqli_fetch_array($result)) {
-                    echo '<a class="learn" name="' . $row['name'] . '"><li>' . $row['name'] . '</li></a>';
-                    $x++;
+                    $name = $row['categor'];
+                    echo '<li><span class="row"><a href="./courses.php?name=' . $name . '">' . $name . '</a>
+                      <label for="' . str_replace(' ', '_', $name) . '"><i class="fa-solid fa-chevron-down"></i></label></span>
+                      <input type="radio" name="drop2" id=' . str_replace(' ', '_', $name) . '>
+                      <div class="list">';
+                    $sql2 = "SELECT * from course where category='$name'";
+                    $result2 = mysqli_query($connection, $sql2);
+                    while ($row2 = mysqli_fetch_array($result2)) {
+                      echo '<a class="learn row" name="' . $row2['name'] . '">' . $row2['name'] . '</a>';
+                    }
+                    echo ('</div></li>');
                   }
                   ?>
-                </ul>
-                <ul>
-                  <h2>course category</h2>
-                  <a href="./courses.php?name=Web Programming">
-                    <li> Web Development</li>
-                  </a>
-                  <a href="./courses.php?name=Programming">
-                    <li> Programming</li>
-                  </a>
-                  <a href="./courses.php?name=Mechanical">
-                    <li> Mechanical Engineering</li>
-                  </a>
-                  <a href="./courses.php?name=Civil">
-                    <li> Civil </li>
-                  </a>
-                  <a href="./courses.php?name=Electrical">
-                    <li> Electrical</li>
-                  </a>
-                  <a href="./courses.php?name=SAP">
-                    <li> SAP</li>
-                  </a>
-                  <a href="./courses.php?name=Diploma">
-                    <li> Diploma</li>
-                  </a>
-                  <a href="./courses.php?name=other">
-                    <li> Other Courses</li>
-                  </a>
-                </ul>
+                </div>
               </div>
-            </li>
-            <li class="links course-link">
-              <a>Services</a>
-              <div class="hover">
-                <ul>
-                  <h1>Services</h1>
-                  <!-- <li>Teaching</li> -->
-                  <li>Web Designing</li>
-                  <li>Interior Designing</li>
-                  <li>Exterior Designing</li>
-                  <li>Home Plans</li>
-                  <li>Machine Designing</li>
-                </ul>
+              <div class='list'>
+                <span class='row'>
+                  <span>Services</span>
+                  <label for="n2"><i class="fa-solid fa-chevron-down"></i></label>
+                </span>
+                <input type="radio" name="drop" id="n2">
+                <div class="list">
+                  <li class="row">Web Designing</li>
+                  <li class="row">Interior Designing</li>
+                  <li class="row">Exterior Designing</li>
+                  <li class="row">Home Plans</li>
+                  <li class="row">Machine Designing</li>
+                </div>
               </div>
-            </li>
-
-            <li class="links">
-              <a href="#contact">Contact Us</a>
-            </li>
+              <div class="row">
+                <a class="learn" name="onlineteach">Online course</a>
+              </div>
+              <div class="row">
+                <a class="learn" name="Students_Corner">Students Corner</a>
+              </div>
+              <div class="row">
+                <a href="about.php">About Us</a>
+              </div>
+              <div class="row">
+                <a href="#contact" onclick="band()">Contact Us</a>
+              </div>
+            </div>
           </ul>
         </div>
-      </div>
     </nav>
   </header>
   <section>
@@ -160,44 +155,23 @@ include "config.php";
   </section>
   <section class="section category">
     <div class="culist">
-      <a href="./courses.php?name=Web Programming" class="imgcu">
-        <img src="images\monitor-1307227_960_720.jpg" alt="" />
-        <span class="category-name">Web Development</span>
-      </a>
-      <a href="./courses.php?name=Programming" class="imgcu">
-        <img src="images\code-1839406_960_720.jpg" alt="" />
-        <span class="category-name">Programming</span>
-      </a>
-      <a href="./courses.php?name=Mechanical" class="imgcu">
-        <img src="images\laptop-2838921_960_720.jpg" alt="" />
-        <span class="category-name">Mechanical</span>
-      </a>
-      <a href="./courses.php?name=Civil" class="imgcu">
-        <img src="images\laptop-2838921_960_720.jpg" alt="" />
-        <span class="category-name">Civil Engineering</span>
-      </a>
-      <a href="./courses.php?name=Electrical" class="imgcu">
-        <img src="images\laptop-2838921_960_720.jpg" alt="" />
-        <span class="category-name">Electrical Engineering</span>
-      </a>
-      <a href="./courses.php?name=SAP" class="imgcu">
-        <img src="images\laptop-2838921_960_720.jpg" alt="" />
-        <span class="category-name">SAP</span>
-      </a>
-      <a href="./courses.php?name=Diploma" class="imgcu">
-        <img src="images\laptop-2838921_960_720.jpg" alt="" />
-        <span class="category-name">Diploma</span>
-      </a>
-      <a href="./courses.php?name=other" class="imgcu">
-        <img src="images\laptop-2838921_960_720.jpg" alt="" />
-        <span class="category-name">Other Courses</span>
-      </a>
+      <?php
+      $sql = "SELECT * from category";
+      $result = mysqli_query($connection, $sql);
+
+      while ($row = mysqli_fetch_array($result)) {
+        echo '<a href="./courses.php?name=' . $row['categor'] . '" class="imgcu">
+        <img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '" alt="" />
+        <span class="category-name">' . $row['categor'] . '</span>
+      </a>';
+      }
+      ?>
     </div>
     <!-- for categories of courses in round form -->
   </section>
   <section class="section">
     <div class="upper">
-      <h1 style="padding: 2rem; font-size: xx-large;">Trending Courses</h1>
+      <h1>Trending Courses</h1>
       <a href="./courses.php?name=All">View All</a>
     </div>
     <div class="courses">
@@ -296,8 +270,8 @@ include "config.php";
   <!-- online course section -->
 
 
-  <section class="section" style="width: 100% !important;">
-    <div class="middle" style="background-color: #f9e4d9;">
+  <section class="section" style="background-color: #f9e4d9; width:100vw;">
+    <div class="middle">
       <h1>Want to learn online</h1>
       <p>We also provide online learning you can also enroll with us for online courses</p>
       <p style="padding:1rem; color: #696767">Fill out the form for enquiry of online courses</p>
@@ -346,9 +320,8 @@ include "config.php";
   <!-- Contact form starts -->
 
 
-  <section id="contact" class="section" style="padding:0rem; margin: 1rem 0%">
-    <div class="middle" id="contac" style="background-color: #ffa371;;">
-
+  <section id="contact" class="section" style="background-color: #ffa371;width:100vw">
+    <div class="middle" id="contac">
       <h3 style="font-weight: bold;">Obtaining further information by contacting our experienced staff</h4>
         <p>We're available for 8 hours a day! Contact to require a detailed analysis and assessment of your plan</p>
         <i class="fa fa-phone" style="height: 2rem; width: 2rem;"></i>
@@ -403,7 +376,7 @@ include "config.php";
   <!-- cards loop with php to show details of courses -->
   <?php
 
-  $sql = "SELECT * from course where rating=5.0";
+  $sql = "SELECT * from course";
   $result = mysqli_query($connection, $sql);
   $x = 0;
   while ($row = mysqli_fetch_array($result)) {
@@ -792,6 +765,15 @@ include "config.php";
       });
     }
   </script>
+  <script>
+    let s = document.getElementById('show')
+    s.addEventListener("click", (e) => {
+      if (!s.children[0].contains(event.target)) {
+        band()
+      }
+    })
+    document.getElementById('cross').addEventListener('click', () => {
+      band()
+    })
+  </script>
 </body>
-
-</html>
