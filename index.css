@@ -128,10 +128,11 @@ nav {
     opacity: 1;
   }
 }
-#show>div:first-child{
+#show>div{
   margin-left: auto;
+  overflow: auto;
   width: 250px;
-  height: 100vh;
+  height: 99vh;
   background-color: var(--back);
   cursor: default;
 }
