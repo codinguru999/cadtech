@@ -3,17 +3,17 @@
         <div class="nav">
             <a href="./"><img src="./images/logo.png" class="logo" alt="logo"></a>
             <div>
-                <label class="links" for="ham" id="menu"><i class="fa-solid fa-bars">=</i></label>
+                <label class="links" for="ham" id="menu"><i class="fa-solid fa-bars"></i></label>
                 <input type="checkbox" name="ham" id="ham">
                 <ul id="show">
                     <div>
                         <div class="row">
                             <img src="./images/logo.png" class="logo" alt="logo">
-                            <i class="fa-solid fa-xmark" id="cross">x</i>
+                            <i class="fa-solid fa-xmark" id="cross"></i>
                         </div>
                         <div class="list">
                             <span class='row'>Courses
-                                <label for="n1"><i class="fa-solid fa-chevron-down">^</i></label></span>
+                                <label for="n1"><i class="fa-solid fa-chevron-down"></i></label></span>
                             <input type="radio" name="drop" id="n1">
                             <div class="list">
                                 <?php
@@ -22,7 +22,7 @@
                                 while ($row = mysqli_fetch_array($result)) {
                                     $name = $row['categor'];
                                     echo '<li><span class="row"><a href="./courses.php?name=' . $name . '">' . $name . '</a>
-                                        <label for="' . str_replace(' ', '_', $name) . '"><i class="fa-solid fa-chevron-down">^</i></label></span>
+                                        <label for="' . str_replace(' ', '_', $name) . '"><i class="fa-solid fa-chevron-down"></i></label></span>
                                         <input type="radio" name="drop2" id=' . str_replace(' ', '_', $name) . '>
                                         <div class="list">';
                                     $sql2 = "SELECT * from course where category='$name'";
@@ -38,7 +38,7 @@
                         <div class='list'>
                             <span class='row'>
                                 <span>Services</span>
-                                <label for="n2"><i class="fa-solid fa-chevron-down">^</i></label>
+                                <label for="n2"><i class="fa-solid fa-chevron-down"></i></label>
                             </span>
                             <input type="radio" name="drop" id="n2">
                             <div class="list">
