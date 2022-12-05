@@ -288,15 +288,17 @@ nav {
   display: flex;
   flex-direction: row;
   overflow-x: auto;
+  max-width: 20rem;
 }
 
 .course {
-  font-size: large;
+  font-size: medium;
   margin: 1rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   font-weight: bold;
+  max-width: 20rem;
   /* overflow: hidden; */
 }
 .course img {

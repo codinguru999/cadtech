@@ -708,5 +708,12 @@ include "config.php";
     document.getElementById('cross').addEventListener('click', () => {
       band()
     })
+    Array.from(document.querySelectorAll('input[type="radio"]')).forEach((e)=>{
+      e.addEventListener('click',()=>{
+        if(e.value=="on"){
+          e.value="off"
+        }
+      })
+    })
   </script>
 </body>
