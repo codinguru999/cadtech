@@ -190,7 +190,7 @@
   </footer>
   <?php
 
-  $sql = "select * from course where rating=5.0";
+  $sql = "select * from course";
   $result = mysqli_query($connection, $sql);
   $x = 0;
   while ($row = mysqli_fetch_array($result)) {

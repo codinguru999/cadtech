@@ -3,13 +3,13 @@
         <div class="nav">
             <a href="./"><img src="./images/logo.png" class="logo" alt="logo"></a>
             <div>
-                <label class="links" for="ham" id="menu"><i class="fa-solid fa-bars">=</i></label>
+                <label class="links" for="ham" id="menu"><i class="fa-solid fa-bars"></i></label>
                 <input type="checkbox" name="ham" id="ham">
                 <ul id="show">
                     <div>
                         <div class="row">
                             <img src="./images/logo.png" class="logo" alt="logo">
-                            <i class="fa-solid fa-xmark" id="cross">x</i>
+                            <i class="fa-solid fa-xmark" id="cross"></i>
                         </div>
                         <div class="list">
                             <span class='row'>Courses

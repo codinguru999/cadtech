@@ -70,12 +70,12 @@
 
         $x = 1;
         while ($row = mysqli_fetch_array($result)) {
-          echo '<div class="course">
+          echo '<div class="course" style=" max-width: 20rem;">
           <div class="img-cont">
           <img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '" alt="" />
           <a class="learn" name="' . $row['name'] . '">Learn More</a>
         </div>
-        <span>' . $row['name'] . '</span>
+        <span style="word-wrap: break-word;">' . $row['name'] . '</span>
         <div class="price">
           <div><i class="fa-solid fa-file-lines"></i>
             ' . $row['studentsenrolled'] . '
@@ -134,20 +134,12 @@
   </footer>
   <?php
   $name = $_GET["name"];
-  if ($_GET["name"] == "Mechanical" || $_GET["name"] == "Civil" || $_GET["name"] == "Electrical") {
-    $sql = "select * from course where category='$name' or rating=5.0 or name='Autocad'";
-  } else {
-
-    if ($_GET["name"] != "All") {
-
-      $sql = "select * from course where category='$name' or rating=5.0";
-    } else {
-
+  
       $sql = "select * from course";
-    }
-  }
   $result = mysqli_query($connection, $sql);
   $x = 0;
+  if($result)
+  {
   while ($row = mysqli_fetch_array($result)) {
     echo '<div class="hidden"  id="' . $row['name'] . '">
     <h1>' . $row['name'] . '</h1>
@@ -181,6 +173,7 @@
     </div>
   </div>';
   }
+}
   ?>
   <div class="hidden" id="info1">
     <h1>
@@ -499,7 +492,22 @@
       });
     }
   </script>
-
+<script>
+    let s = document.getElementById('show')
+    s.addEventListener("click", (e) => {
+      if (!s.children[0].contains(event.target)) {
+        ele = document.getElementsByTagName("input");
+        for (var i = 0; i < ele.length; i++)
+          ele[i].checked = false;
+      }
+    })
+    document.getElementById('cross').addEventListener('click', () => {
+      // document.getElementById('ham').checked = false;
+      ele = document.getElementsByTagName("input");
+      for (var i = 0; i < ele.length; i++)
+        ele[i].checked = false;
+    })
+  </script>
 </body>
 
 </html>
