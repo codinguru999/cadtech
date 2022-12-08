@@ -14,7 +14,7 @@
                         <div class="list">
                             <span class='row'>Courses
                                 <label for="n1"><i class="fa-solid fa-chevron-down"></i></label></span>
-                            <input type="radio" name="drop" id="n1">
+                            <input type="radio" data-waschecked="false" name="drop" id="n1">
                             <div class="list">
                                 <?php
                                 $sql = "SELECT * from category";
@@ -23,7 +23,7 @@
                                     $name = $row['categor'];
                                     echo '<li><span class="row"><a href="./courses.php?name=' . $name . '">' . $name . '</a>
                                         <label for="' . str_replace(' ', '_', $name) . '"><i class="fa-solid fa-chevron-down"></i></label></span>
-                                        <input type="radio" name="drop2" id=' . str_replace(' ', '_', $name) . '>
+                                        <input type="radio" data-waschecked="false" name="drop2" id=' . str_replace(' ', '_', $name) . '>
                                         <div class="list">';
                                     $sql2 = "SELECT * from course where category='$name'";
                                     $result2 = mysqli_query($connection, $sql2);
@@ -40,7 +40,7 @@
                                 <span>Services</span>
                                 <label for="n2"><i class="fa-solid fa-chevron-down"></i></label>
                             </span>
-                            <input type="radio" name="drop" id="n2">
+                            <input type="radio" data-waschecked="false" name="drop" id="n2">
                             <div class="list">
                                 <li class="row">Web Designing</li>
                                 <li class="row">Interior Designing</li>

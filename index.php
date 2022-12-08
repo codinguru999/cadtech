@@ -574,7 +574,7 @@ include "config.php";
       }, 100);
     }
     Array.from(document.getElementsByClassName("learn")).forEach(e => {
-      console.log(e.name);
+      // console.log(e.name);
       e.addEventListener('click', () => {
         let x = document.getElementById(e.name)
         p.style.display = 'flex'
@@ -607,7 +607,7 @@ include "config.php";
     function kuchto(e) {
       let v = e.options[e.selectedIndex].value
       if (v == 'null') {
-        console.log('null');
+        // console.log('null');
         document.getElementById('Course1').innerHTML = '';
       }
       else {
@@ -634,12 +634,12 @@ include "config.php";
     function kuchto2(e) {
       let v = e.options[e.selectedIndex].value
       if (v == 'null') {
-        console.log('null');
+        // console.log('null');
         document.getElementById('Course2').innerHTML = '';
       }
       else {
         let f = all2.filter(e => e[1] == v)
-        console.log(f);
+        // console.log(f);
         f.forEach(f => {
           let o = document.createElement('option')
           o.value = f[0]
@@ -694,7 +694,7 @@ include "config.php";
   </script>
   <script>
     function band() {
-      console.log('yes');
+      // console.log('yes');
       ele = document.getElementsByTagName("input");
       for (var i = 0; i < ele.length; i++)
         ele[i].checked = false;
@@ -708,12 +708,11 @@ include "config.php";
     document.getElementById('cross').addEventListener('click', () => {
       band()
     })
-    Array.from(document.querySelectorAll('input[type="radio"]')).forEach((e)=>{
-      e.addEventListener('click',()=>{
-        if(e.value=="on"){
-          e.value="off"
-        }
-      })
-    })
+    // Array.from(document.querySelectorAll('input[type="radio"]')).forEach((e) => {
+    //   e.addEventListener('click', () => {
+    //     let allSiblings = e.parentElement.parentElement.children;
+    //     console.log(allSiblings);
+    //   })
+    // })
   </script>
 </body>

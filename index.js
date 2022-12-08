@@ -36,13 +36,12 @@ $(function () {
     if ($radio.data("waschecked") == true) {
       $radio.prop("checked", false);
       $radio.data("waschecked", false);
-    } 
+    }
     else {
       $radio.prop("checked", true);
       $radio.data("waschecked", true);
     }
-
     // remove was checked from other radios
-    $radio.siblings('input[type="radio"]').data("waschecked", false);
+    // $radio.siblings('input[type="radio"]').data("waschecked", false);
   });
 });
