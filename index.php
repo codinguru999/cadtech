@@ -10,8 +10,9 @@ include "config.php";
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="index.css" />
   <script src="https://kit.fontawesome.com/3f04a3eb9b.js" crossorigin="anonymous"></script>
-  <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="fonts/google-fonts.css" /> -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>Cad Tech</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="./index.js"></script>
@@ -606,11 +607,11 @@ include "config.php";
     });
     function kuchto(e) {
       let v = e.options[e.selectedIndex].value
-      if (v == 'null') {
+      // if (v == 'null') {
         // console.log('null');
         document.getElementById('Course1').innerHTML = '';
-      }
-      else {
+      // }
+      // else {
         let f = all.filter(e => e[1] == v)
         f.forEach(f => {
           let o = document.createElement('option')
@@ -618,7 +619,7 @@ include "config.php";
           o.innerHTML = f[0]
           document.getElementById('Course1').appendChild(o);
         })
-      }
+      // }
     }
   </script>
   <script>
@@ -633,11 +634,11 @@ include "config.php";
     });
     function kuchto2(e) {
       let v = e.options[e.selectedIndex].value
-      if (v == 'null') {
+      // if (v == 'null') {
         // console.log('null');
         document.getElementById('Course2').innerHTML = '';
-      }
-      else {
+      // }
+      // else {
         let f = all2.filter(e => e[1] == v)
         // console.log(f);
         f.forEach(f => {
@@ -646,7 +647,7 @@ include "config.php";
           o.innerHTML = f[0]
           document.getElementById('Course2').appendChild(o);
         })
-      }
+      // }
     }
   </script>
   <script>
@@ -708,11 +709,25 @@ include "config.php";
     document.getElementById('cross').addEventListener('click', () => {
       band()
     })
-    // Array.from(document.querySelectorAll('input[type="radio"]')).forEach((e) => {
-    //   e.addEventListener('click', () => {
-    //     let allSiblings = e.parentElement.parentElement.children;
-    //     console.log(allSiblings);
-    //   })
-    // })
+    Array.from(document.querySelectorAll('input[type="radio"]')).forEach((e) => {
+      e.addEventListener('click', () => {
+        console.log(e.name);
+        let allSiblings = Array.from(document.querySelectorAll(`input[name="${e.name}"]`));
+        allSiblings.forEach(element => {
+          if (element == e) {
+            if (element.getAttribute('data-waschecked') == 'true') {
+              element.checked = false;
+              element.setAttribute('data-waschecked', 'false')
+            } else {
+              element.setAttribute('data-waschecked', 'true')
+              element.checked = true;
+            }
+          } else {
+            element.setAttribute('data-waschecked', 'false')
+            element.checked = false;
+          }
+        });
+      })
+    })
   </script>
 </body>

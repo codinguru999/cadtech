@@ -7,8 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="index.css" />
   <script src="https://kit.fontawesome.com/3f04a3eb9b.js" crossorigin="anonymous"></script>
-  <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="fonts/google-fonts.css" /> -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>CAD Tech</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="./index.js"></script>

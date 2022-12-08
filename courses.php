@@ -7,8 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="index.css" />
   <script src="https://kit.fontawesome.com/3f04a3eb9b.js" crossorigin="anonymous"></script>
-  <!-- <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="fonts/google-fonts.css" /> -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>Cad Tech</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="./index.js"></script>
@@ -135,14 +136,13 @@
   </footer>
   <?php
   $name = $_GET["name"];
-  
-      $sql = "select * from course";
+
+  $sql = "select * from course";
   $result = mysqli_query($connection, $sql);
   $x = 0;
-  if($result)
-  {
-  while ($row = mysqli_fetch_array($result)) {
-    echo '<div class="hidden"  id="' . $row['name'] . '">
+  if ($result) {
+    while ($row = mysqli_fetch_array($result)) {
+      echo '<div class="hidden"  id="' . $row['name'] . '">
     <h1>' . $row['name'] . '</h1>
     <div>
       <span>Topics: ' . $row['topicnumber'] . '</span>
@@ -155,26 +155,26 @@
     <img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '" alt="" />
       <ul>
         <h2>Topics</h2>';
-    $dat = json_decode($row['topics']);
-    if (gettype($dat) == "object") {
-      foreach ($dat as $key => $value) {
-        echo "<h4>" . $key . "</h4>;";
-        echo "<ul>";
-        foreach ($value as $ar) {
+      $dat = json_decode($row['topics']);
+      if (gettype($dat) == "object") {
+        foreach ($dat as $key => $value) {
+          echo "<h4>" . $key . "</h4>;";
+          echo "<ul>";
+          foreach ($value as $ar) {
+            echo "<li>" . $ar . "</li>";
+          }
+          echo "</ul>";
+        }
+      } else if (gettype($dat) == "array") {
+        foreach ($dat as $ar) {
           echo "<li>" . $ar . "</li>";
         }
-        echo "</ul>";
       }
-    } else if (gettype($dat) == "array") {
-      foreach ($dat as $ar) {
-        echo "<li>" . $ar . "</li>";
-      }
-    }
-    echo '</ul>
+      echo '</ul>
     </div>
   </div>';
+    }
   }
-}
   ?>
   <div class="hidden" id="info1">
     <h1>
@@ -472,7 +472,7 @@
       });
     }
   </script>
-<script>
+  <script>
     let s = document.getElementById('show')
     s.addEventListener("click", (e) => {
       if (!s.children[0].contains(event.target)) {
