@@ -407,19 +407,19 @@
     });
     function kuchto(e) {
       let v = e.options[e.selectedIndex].value
-      if (v == 'null') {
-        console.log('null');
-        document.getElementById('Course1').innerHTML = '';
-      }
-      else {
-        let f = all.filter(e => e[1] == v)
-        f.forEach(f => {
-          let o = document.createElement('option')
-          o.value = f[0]
-          o.innerHTML = f[0]
-          document.getElementById('Course1').appendChild(o);
-        })
-      }
+      // if (v == 'null') {
+      // console.log('null');
+      document.getElementById('Course1').innerHTML = '';
+      // }
+      // else {
+      let f = all.filter(e => e[1] == v)
+      f.forEach(f => {
+        let o = document.createElement('option')
+        o.value = f[0]
+        o.innerHTML = f[0]
+        document.getElementById('Course1').appendChild(o);
+      })
+      // }
     }
   </script>
   <script>
@@ -434,20 +434,20 @@
     });
     function kuchto2(e) {
       let v = e.options[e.selectedIndex].value
-      if (v == 'null') {
-        console.log('null');
-        document.getElementById('Course2').innerHTML = '';
-      }
-      else {
-        let f = all2.filter(e => e[1] == v)
-        console.log(f);
-        f.forEach(f => {
-          let o = document.createElement('option')
-          o.value = f[0]
-          o.innerHTML = f[0]
-          document.getElementById('Course2').appendChild(o);
-        })
-      }
+      // if (v == 'null') {
+      // console.log('null');
+      document.getElementById('Course2').innerHTML = '';
+      // }
+      // else {
+      let f = all2.filter(e => e[1] == v)
+      // console.log(f);
+      f.forEach(f => {
+        let o = document.createElement('option')
+        o.value = f[0]
+        o.innerHTML = f[0]
+        document.getElementById('Course2').appendChild(o);
+      })
+      // }
     }
   </script>
   <script>
@@ -473,21 +473,43 @@
     }
   </script>
   <script>
-    let s = document.getElementById('show')
-    s.addEventListener("click", (e) => {
-      if (!s.children[0].contains(event.target)) {
-        ele = document.getElementsByTagName("input");
-        for (var i = 0; i < ele.length; i++)
-          ele[i].checked = false;
-      }
-    })
-    document.getElementById('cross').addEventListener('click', () => {
-      // document.getElementById('ham').checked = false;
+    function band() {
+      // console.log('yes');
       ele = document.getElementsByTagName("input");
       for (var i = 0; i < ele.length; i++)
         ele[i].checked = false;
+    }
+    let s = document.getElementById('show')
+    s.addEventListener("click", (e) => {
+      if (!s.children[0].contains(event.target)) {
+        band()
+      }
+    })
+    document.getElementById('cross').addEventListener('click', () => {
+      band()
+    })
+    Array.from(document.querySelectorAll('input[type="radio"]')).forEach((e) => {
+      e.addEventListener('click', () => {
+        console.log(e.name);
+        let allSiblings = Array.from(document.querySelectorAll(`input[name="${e.name}"]`));
+        allSiblings.forEach(element => {
+          if (element == e) {
+            if (element.getAttribute('data-waschecked') == 'true') {
+              element.checked = false;
+              element.setAttribute('data-waschecked', 'false')
+            } else {
+              element.setAttribute('data-waschecked', 'true')
+              element.checked = true;
+            }
+          } else {
+            element.setAttribute('data-waschecked', 'false')
+            element.checked = false;
+          }
+        });
+      })
     })
   </script>
+
 </body>
 
 </html>

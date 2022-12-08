@@ -608,17 +608,17 @@ include "config.php";
     function kuchto(e) {
       let v = e.options[e.selectedIndex].value
       // if (v == 'null') {
-        // console.log('null');
-        document.getElementById('Course1').innerHTML = '';
+      // console.log('null');
+      document.getElementById('Course1').innerHTML = '';
       // }
       // else {
-        let f = all.filter(e => e[1] == v)
-        f.forEach(f => {
-          let o = document.createElement('option')
-          o.value = f[0]
-          o.innerHTML = f[0]
-          document.getElementById('Course1').appendChild(o);
-        })
+      let f = all.filter(e => e[1] == v)
+      f.forEach(f => {
+        let o = document.createElement('option')
+        o.value = f[0]
+        o.innerHTML = f[0]
+        document.getElementById('Course1').appendChild(o);
+      })
       // }
     }
   </script>
@@ -635,18 +635,18 @@ include "config.php";
     function kuchto2(e) {
       let v = e.options[e.selectedIndex].value
       // if (v == 'null') {
-        // console.log('null');
-        document.getElementById('Course2').innerHTML = '';
+      // console.log('null');
+      document.getElementById('Course2').innerHTML = '';
       // }
       // else {
-        let f = all2.filter(e => e[1] == v)
-        // console.log(f);
-        f.forEach(f => {
-          let o = document.createElement('option')
-          o.value = f[0]
-          o.innerHTML = f[0]
-          document.getElementById('Course2').appendChild(o);
-        })
+      let f = all2.filter(e => e[1] == v)
+      // console.log(f);
+      f.forEach(f => {
+        let o = document.createElement('option')
+        o.value = f[0]
+        o.innerHTML = f[0]
+        document.getElementById('Course2').appendChild(o);
+      })
       // }
     }
   </script>
